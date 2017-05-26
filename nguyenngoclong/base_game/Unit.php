@@ -60,8 +60,21 @@ class Unit extends Item
 			$crit = $sodierAttack['critical'];
 			$block = $sodierDefense['block'];
 			$damageWhenAttack =  $this->getDamageWhenAttack($damageAttack, $damageDefense, $crit, $block);
+			// Nếu lượt đánh đó attack < defense sẽ thông báo Miss, nếu không sẽ trừ hp của defense
 
-			$heath[$turn] = $heath[$turn] - $damageWhenAttack ;
+			if($damageWhenAttack < 0)
+			{
+				$damageWhenAttack = 'Miss';
+			}
+			else 
+			{
+					$heath[$turn] = $heath[$turn] - $damageWhenAttack ;
+			}
+			// Nếu lượt đánh đó là crit sẽ thông báo Critical + damage
+			if($damageWhenAttack > ($damageAttack - $damageDefense))
+			{
+				$damageWhenAttack = 'Critical: '.$damageWhenAttack;
+			}
 			if($heath[$turn] <= 0)
 				$heath[$turn] = 0;
 			echo "Turn: ".$stt."<br>";
@@ -86,7 +99,7 @@ class Unit extends Item
 		}
 		if($this->isBlock($block))
 		{
-			return 0;
+			return 'Block';
 		}
 
 		return ($damageAttack - $damageDefense);

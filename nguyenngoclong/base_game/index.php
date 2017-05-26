@@ -23,23 +23,23 @@
 
 		$sodier = [
 			'name'=>'Sodier',
-			'heath'=>100,
+			'heath'=>1000,
 			'damage'=>30,
 			'defense'=>10,
 			'damage_wepon'=>20,
-			'critical'=>10,
+			'critical'=>30,
 			'defense_armor'=>10,
-			'block'=>1
+			'block'=>40
 			];
 		$wizard = [
 			'name'=>'Wizard',
-			'heath'=>100,
+			'heath'=>1000,
 			'damage'=>40,
 			'defense'=>5,
 			'damage_wepon'=>25,
 			'critical'=>20,
-			'defense_armor'=>10,
-			'block'=>1
+			'defense_armor'=>20,
+			'block'=>35
 			];
 	require('Unit.php');
 	echo "Bắt đầu: <br>";
@@ -48,18 +48,18 @@
 	echo "Damage unit 1: ".$sodier['damage']."<br>";
 	echo "Defense unit 1: ".$sodier['defense']."<br>";
 	echo "Damage wepon unit 1: ".$sodier['damage_wepon']."<br>";
-	echo "Tỉ lệ critical unit 1: ".$sodier['critical']."<br>";
+	echo "Tỉ lệ critical unit 1: ".$sodier['critical']."% <br>";
 	echo "Defense armor unit 1: ".$sodier['defense_armor']."<br>";
-	echo "Tỉ lệ block unit 1: ".$sodier['block']."<br>";
+	echo "Tỉ lệ block unit 1: ".$sodier['block']."% <br>";
 	echo "<br>";
 	echo "Tên unit 2: ".$wizard['name']."<br>";
 	echo "Hp unit 2: ".$wizard['heath']."<br>";
 	echo "Damage unit 2: ".$wizard['damage']."<br>";
 	echo "Defense unit 2: ".$wizard['defense']."<br>";
 	echo "Damage wepon unit 2: ".$wizard['damage_wepon']."<br>";
-	echo "Tỉ lệ critical unit 2: ".$wizard['critical']."<br>";
+	echo "Tỉ lệ critical unit 2: ".$wizard['critical']."% <br>";
 	echo "Defense armor unit 2: ".$wizard['defense_armor']."<br>";
-	echo "Tỉ lệ block unit 2: ".$wizard['block']."<br>";
+	echo "Tỉ lệ block unit 2: ".$wizard['block']."% <br>";
 	echo "<hr>";
 	$unit = new Unit($sodier, $wizard);
 	$unit->attack();
